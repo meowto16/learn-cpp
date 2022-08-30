@@ -2,3 +2,5 @@
 .vs
 *.sln
 *.out
+.vs
+.vscode
