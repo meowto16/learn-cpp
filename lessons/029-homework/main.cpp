@@ -25,7 +25,22 @@ int main() {
         break;
       }
     }
-
-    cout << arr[i] << endl;
   }
+
+  cout << "Массив: [ ";
+  for (int i = 0; i < size(arr); i++) {
+    cout << arr[i] << (" ");
+  }
+  cout << "]" << endl;
+
+
+  int min_number = arr[0];
+
+  for (int i = 1; i < size(arr); i++) {
+    if (arr[i] < min_number) {
+      min_number = arr[i];
+    }
+  }
+
+  cout << "Минимальное число: " << min_number << endl;
 }
