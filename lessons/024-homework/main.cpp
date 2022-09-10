@@ -6,6 +6,7 @@ int main() {
   char const DRAWING_SYMBOL = '*';
   int length;
   int width;
+  int rectangle_type = 1;
 
   cout << "Введите длину прямоугольника (больше 0): ";
   cin >> length;
@@ -23,11 +24,34 @@ int main() {
     return -1;
   }
 
-  for (int i = 0; i < width; i++) {
-    for (int j = 0; j < length; j++) {
-      cout << DRAWING_SYMBOL;
-    }
+  cout << "Выберите тип прямоугольника: "
+    << endl << "1. Только контур"
+    << endl << "2. Контур + закраска"
+    << endl << "Введите значение: ";
+  cin >> rectangle_type;
 
-    cout << endl;
+  switch (rectangle_type) {
+    case 1:
+        for (int i = 0; i < width; i++) {
+          for (int j = 0; j < length; j++) {
+            bool is_point_inside = (i > 0 && i < width - 1) && (j > 0 && j < length - 1);
+
+            cout << (is_point_inside ? ' ' : DRAWING_SYMBOL);
+          }
+          cout << endl;
+        }
+      break;
+    case 2:
+      for (int i = 0; i < width; i++) {
+        for (int j = 0; j < length; j++) {
+          cout << DRAWING_SYMBOL;
+        }
+        cout << endl;
+      }
+      
+      break;
+    default:
+      cout << "Выбран неверный тип прямоугольника" << endl;
+      return -1;
   }
 }
